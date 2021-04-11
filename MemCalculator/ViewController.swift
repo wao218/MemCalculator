@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     let clearButton = UIButton(frame: CGRect(x: 0,
                                             y: holder.frame.size.height - (buttonSize * 5),
-                                            width: view.frame.size.height,
+                                            width: view.frame.size.width,
                                             height: buttonSize))
     clearButton.backgroundColor = .white
     clearButton.setTitleColor(.black, for: .normal)
@@ -82,13 +82,13 @@ class ViewController: UIViewController {
     // Operation Buttons +, -, /, *
     let operations = ["+", "-", "x", "/"]
     for x in 0..<4 {
-      let button4 = UIButton(frame: CGRect(x: buttonSize * CGFloat(x),
-                                              y: holder.frame.size.height - (buttonSize * 4),
+      let button4 = UIButton(frame: CGRect(x: buttonSize * 3,
+                                              y: holder.frame.size.height - (buttonSize * CGFloat(x+1)),
                                               width: buttonSize,
                                               height: buttonSize))
-      button4.backgroundColor = .white
-      button4.setTitleColor(.black, for: .normal)
-      button4.setTitle("\(x+7)", for: .normal)
+      button4.backgroundColor = .orange
+      button4.setTitleColor(.white, for: .normal)
+      button4.setTitle(operations[x], for: .normal)
       holder.addSubview(button4)
     }
   }

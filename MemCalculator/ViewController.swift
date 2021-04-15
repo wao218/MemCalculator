@@ -27,10 +27,19 @@ class ViewController: UIViewController {
     label.textAlignment = .right
     label.font = .systemFont(ofSize: 100)
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.layer.borderWidth = 1
-    label.layer.borderColor = UIColor.black.cgColor
     return label
   }()
+  
+  private var workingResultLabel: UILabel = {
+    let label = UILabel()
+    label.text = ""
+    label.textColor = UIColor(named: "operationColor")
+    label.textAlignment = .right
+    label.font = .systemFont(ofSize: 100)
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }()
+  
   
   private var zeroButton: UIButton = {
     let button = UIButton()
@@ -45,8 +54,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 0
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -63,8 +70,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 1
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -81,8 +86,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 2
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -99,8 +102,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 3
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -117,8 +118,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 4
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -135,8 +134,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 5
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -153,8 +150,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 6
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -171,8 +166,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 7
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -189,8 +182,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 8
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -207,8 +198,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 9
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -216,11 +205,10 @@ class ViewController: UIViewController {
     let button = UIButton()
     button.backgroundColor = UIColor(named: "backgroundColor")
     button.setTitleColor(UIColor(named: "operationColor"), for: .normal)
-    button.setTitle("Clear All", for: .normal)
+    button.setTitle("Clear", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 30)
+    button.layer.cornerRadius = 16
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -237,8 +225,6 @@ class ViewController: UIViewController {
     button.layer.shadowRadius = 5
     button.tag = 1
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -248,10 +234,9 @@ class ViewController: UIViewController {
     button.setTitleColor(UIColor(named: "accents"), for: .normal)
     button.setTitle("+", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 30)
+    button.layer.cornerRadius = 16
     button.tag = 2
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -261,10 +246,9 @@ class ViewController: UIViewController {
     button.setTitleColor(UIColor(named: "accents"), for: .normal)
     button.setTitle("-", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 30)
+    button.layer.cornerRadius = 16
     button.tag = 3
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -274,10 +258,9 @@ class ViewController: UIViewController {
     button.setTitleColor(UIColor(named: "accents"), for: .normal)
     button.setTitle("*", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 30)
+    button.layer.cornerRadius = 16
     button.tag = 4
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
   
@@ -287,37 +270,123 @@ class ViewController: UIViewController {
     button.setTitleColor(UIColor(named: "accents"), for: .normal)
     button.setTitle("/", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 30)
+    button.layer.cornerRadius = 16
     button.tag = 5
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.black.cgColor
     return button
   }()
+  
+  private var firstRowButtonContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fill
+    stackView.spacing = 8
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  private var secondRowButtonContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fillEqually
+    stackView.spacing = 8
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  private var thirdRowButtonContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fillEqually
+    stackView.spacing = 8
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  private var fourthRowButtonContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fillEqually
+    stackView.spacing = 8
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  private var fifthRowButtonContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fill
+    stackView.spacing = 8
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  private var buttonPadContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.distribution = .fillEqually
+    stackView.spacing = 8
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  private var labelsContainer: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.distribution = .fillEqually
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
   
   // MARK: - Lifecyle
   override func viewDidLoad() {
     super.viewDidLoad()
     addTargets()
+    layoutSubViews()
+    setupContraints()
     let buttonSize: CGFloat = view.frame.size.width / 4
     print(buttonSize)
     print(view.frame.size.width)
     print(view.frame.size.height)
   }
   
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    layoutSubViews()
-    setupContraints()
-//    setupCalculator()
-  }
-  
   // MARK: - Helper Methods
   
   private func layoutSubViews() {
-    let subViews = [resultLabel, clearButton, zeroButton, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, equalButton, addButton, subtractButton, multiplyButton, divideButton]
-    for view in subViews {
-      holder.addSubview(view)
-    }
+    
+    holder.addSubview(labelsContainer)
+    holder.addSubview(buttonPadContainer)
+    
+    labelsContainer.addArrangedSubview(workingResultLabel)
+    labelsContainer.addArrangedSubview(resultLabel)
+    
+    
+    buttonPadContainer.addArrangedSubview(firstRowButtonContainer)
+    buttonPadContainer.addArrangedSubview(secondRowButtonContainer)
+    buttonPadContainer.addArrangedSubview(thirdRowButtonContainer)
+    buttonPadContainer.addArrangedSubview(fourthRowButtonContainer)
+    buttonPadContainer.addArrangedSubview(fifthRowButtonContainer)
+    
+    
+    firstRowButtonContainer.addArrangedSubview(clearButton)
+    firstRowButtonContainer.addArrangedSubview(divideButton)
+    
+    secondRowButtonContainer.addArrangedSubview(sevenButton)
+    secondRowButtonContainer.addArrangedSubview(eightButton)
+    secondRowButtonContainer.addArrangedSubview(nineButton)
+    secondRowButtonContainer.addArrangedSubview(multiplyButton)
+    
+    thirdRowButtonContainer.addArrangedSubview(fourButton)
+    thirdRowButtonContainer.addArrangedSubview(fiveButton)
+    thirdRowButtonContainer.addArrangedSubview(sixButton)
+    thirdRowButtonContainer.addArrangedSubview(subtractButton)
+    
+    fourthRowButtonContainer.addArrangedSubview(oneButton)
+    fourthRowButtonContainer.addArrangedSubview(twoButton)
+    fourthRowButtonContainer.addArrangedSubview(threeButton)
+    fourthRowButtonContainer.addArrangedSubview(addButton)
+    
+    fifthRowButtonContainer.addArrangedSubview(zeroButton)
+    fifthRowButtonContainer.addArrangedSubview(equalButton)
+    
+    
+        
   }
   
   private func addTargets() {
@@ -340,118 +409,23 @@ class ViewController: UIViewController {
   
   private func setupContraints() {
     
-    NSLayoutConstraint.activate([
+    buttonPadContainer.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor).isActive = true
+    holder.layoutMarginsGuide.trailingAnchor.constraint(equalTo: buttonPadContainer.trailingAnchor).isActive = true
+    holder.bottomAnchor.constraint(equalTo: buttonPadContainer.bottomAnchor).isActive = true
     
-      // result label
-      resultLabel.topAnchor.constraint(equalTo: holder.layoutMarginsGuide.topAnchor, constant: 145),
-      resultLabel.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor),
-      resultLabel.trailingAnchor.constraint(equalTo: holder.layoutMarginsGuide.trailingAnchor),
-      resultLabel.heightAnchor.constraint(equalTo: holder.heightAnchor, multiplier: 0.15),
-      
-      // Clear Button
-      clearButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor),
-      clearButton.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor),
-      clearButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.75),
-      clearButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Seven Button
-      sevenButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor),
-      sevenButton.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor),
-      sevenButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      sevenButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Four Button
-      fourButton.topAnchor.constraint(equalTo: sevenButton.bottomAnchor),
-      fourButton.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor),
-      fourButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      fourButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // One Button
-      oneButton.topAnchor.constraint(equalTo: fourButton.bottomAnchor),
-      oneButton.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor),
-      oneButton.bottomAnchor.constraint(equalTo: zeroButton.topAnchor),
-      oneButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      oneButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Zero Button
-      zeroButton.topAnchor.constraint(equalTo: oneButton.bottomAnchor),
-      zeroButton.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor),
-      zeroButton.bottomAnchor.constraint(equalTo: holder.layoutMarginsGuide.bottomAnchor),
-      zeroButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.75),
-      zeroButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Eight Button
-      eightButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor),
-      eightButton.leadingAnchor.constraint(equalTo: sevenButton.trailingAnchor),
-      eightButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      eightButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Five Button
-      fiveButton.topAnchor.constraint(equalTo: eightButton.bottomAnchor),
-      fiveButton.leadingAnchor.constraint(equalTo: fourButton.trailingAnchor),
-      fiveButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      fiveButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Two Button
-      twoButton.topAnchor.constraint(equalTo: fiveButton.bottomAnchor),
-      twoButton.leadingAnchor.constraint(equalTo: oneButton.trailingAnchor),
-      twoButton.bottomAnchor.constraint(equalTo: zeroButton.topAnchor),
-      twoButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      twoButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Nine Button
-      nineButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor),
-      nineButton.leadingAnchor.constraint(equalTo: eightButton.trailingAnchor),
-      nineButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      nineButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Six Button
-      sixButton.topAnchor.constraint(equalTo: nineButton.bottomAnchor),
-      sixButton.leadingAnchor.constraint(equalTo: fiveButton.trailingAnchor),
-      sixButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      sixButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Three Button
-      threeButton.topAnchor.constraint(equalTo: sixButton.bottomAnchor),
-      threeButton.leadingAnchor.constraint(equalTo: twoButton.trailingAnchor),
-      threeButton.bottomAnchor.constraint(equalTo: zeroButton.topAnchor),
-      threeButton.widthAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      threeButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Divide Button
-      divideButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor),
-      divideButton.leadingAnchor.constraint(equalTo: clearButton.trailingAnchor),
-      divideButton.trailingAnchor.constraint(equalTo: holder.layoutMarginsGuide.trailingAnchor),
-      divideButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Mulitply Button
-      multiplyButton.topAnchor.constraint(equalTo: divideButton.bottomAnchor),
-      multiplyButton.leadingAnchor.constraint(equalTo: nineButton.trailingAnchor),
-      multiplyButton.trailingAnchor.constraint(equalTo: holder.layoutMarginsGuide.trailingAnchor),
-      multiplyButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Subtract Button
-      subtractButton.topAnchor.constraint(equalTo: multiplyButton.bottomAnchor),
-      subtractButton.leadingAnchor.constraint(equalTo: sixButton.trailingAnchor),
-      subtractButton.trailingAnchor.constraint(equalTo: holder.layoutMarginsGuide.trailingAnchor),
-      subtractButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Add Button
-      addButton.topAnchor.constraint(equalTo: subtractButton.bottomAnchor),
-      addButton.leadingAnchor.constraint(equalTo: threeButton.trailingAnchor),
-      addButton.trailingAnchor.constraint(equalTo: holder.layoutMarginsGuide.trailingAnchor),
-      addButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25),
-      
-      // Equal Button
-      equalButton.topAnchor.constraint(equalTo: addButton.bottomAnchor),
-      equalButton.leadingAnchor.constraint(equalTo: zeroButton.trailingAnchor),
-      equalButton.bottomAnchor.constraint(equalTo: holder.layoutMarginsGuide.bottomAnchor),
-      equalButton.trailingAnchor.constraint(equalTo: holder.layoutMarginsGuide.trailingAnchor),
-      equalButton.heightAnchor.constraint(equalTo: holder.widthAnchor, multiplier: 0.25)
-      
-
-      
-    ])
+    labelsContainer.leadingAnchor.constraint(equalTo: holder.layoutMarginsGuide.leadingAnchor).isActive = true
+    holder.layoutMarginsGuide.trailingAnchor.constraint(equalTo: labelsContainer.trailingAnchor).isActive = true
+    labelsContainer.topAnchor.constraint(equalTo: holder.topAnchor).isActive = true
+    
+    buttonPadContainer.topAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: 8).isActive = true
+    
+    buttonPadContainer.heightAnchor.constraint(equalTo: labelsContainer.heightAnchor, multiplier: 2).isActive = true
+    
+    divideButton.widthAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
+    
+    equalButton.widthAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
+    
+    
   }
   
   
@@ -492,20 +466,20 @@ class ViewController: UIViewController {
         switch operation {
         case .add:
           let result = firstNumber + secondNumber
-          resultLabel.text = "\(result)"
-          break
+          workingResultLabel.text = "\(result)"
+          resultLabel.text = "0"
         case .subtract:
           let result = firstNumber - secondNumber
-          resultLabel.text = "\(result)"
-          break
+          workingResultLabel.text = "\(result)"
+          resultLabel.text = "0"
         case .multiply:
           let result = firstNumber * secondNumber
-          resultLabel.text = "\(result)"
-          break
+          workingResultLabel.text = "\(result)"
+          resultLabel.text = "0"
         case .divide:
           let result = firstNumber / secondNumber
-          resultLabel.text = "\(result)"
-          break
+          workingResultLabel.text = "\(result)"
+          resultLabel.text = "0"
         }
       }
     case 2:
